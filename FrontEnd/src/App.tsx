@@ -7,7 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import React from 'react';
-import {Typography, Button, styled, Paper} from '@mui/material';
+import {Typography, Button, styled, Paper, ButtonBase} from '@mui/material';
 import Connex from '@vechain/connex';
 import {Transaction} from 'thor-devkit';
 import { LinkCustom, SellerListing } from './pages/SellerListing';
@@ -32,6 +32,7 @@ const ImgContainer = styled("div")`
   display: flex;
   justify-content: center;
   background: #eee;
+  border-top: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
 `;
 
@@ -118,7 +119,7 @@ function LandingPage(){
       <div>
 
         <Paper style={{padding: '20px'}}>
-          <Typography variant="h4">Food 4 thought</Typography>
+          <Typography variant="h4">Food 4 Thought</Typography>
           <Typography variant="button">Responsibly sourced food</Typography>
           <Typography>Better food for the future</Typography>
         </Paper>
@@ -159,6 +160,10 @@ class Root extends React.Component {
           <LinkCustom to="sellers">
             <HeaderButton>Sellers</HeaderButton>
           </LinkCustom>
+          <div style={{flexGrow: 1}}/>
+          <ButtonBase onClick={() => connectWallet()}>
+            <HeaderButton>Sign In</HeaderButton>
+          </ButtonBase>
         </HeaderBarContainer> 
         
         <Outlet/>
